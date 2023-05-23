@@ -179,7 +179,7 @@ class ClientSession(aiohttp.ClientSession):
                 return await self._request(method, url, **kwargs)
             except (TimeoutError, ClientOSError, ClientResponseError, IncompleteReadError,
                     ClientConnectorError, ServerDisconnectedError, ConnectionResetError,
-                    ProxyConnectionError):
+                    ProxyConnectionError, RuntimeError):
                 pass
             except Exception as e:
                 err = str(e).strip()

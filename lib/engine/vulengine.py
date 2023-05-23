@@ -73,7 +73,7 @@ class VulEngine(BaseEngine):
                                 return data
                 else:
                     log.error(f"Error, module: {name}:{func_name} address: {host}:{port}, error: function is exist")
-        except (ConnectionResetError, ConnectionAbortedError, TimeoutError, ClientPayloadError):
+        except (ConnectionResetError, ConnectionAbortedError, TimeoutError, ClientPayloadError, RuntimeError):
             self.error_count += 1
         except Exception as e:
             log.error(traceback.format_exc())
